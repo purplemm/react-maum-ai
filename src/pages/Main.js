@@ -1,6 +1,10 @@
+import Section from "../components/content/main/Section";
+
 function Main(){
     return (
-        <div>메인 페이지</div>
+        <div className="fullpage-wrapper">
+            <Section />
+        </div>
     )
 }
 

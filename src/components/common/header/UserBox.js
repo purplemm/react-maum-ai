@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { icoUserGrey } from "../../../assets/images/headerImg";
+import { icoUserGrey } from "../../../assets/images/CommImg";
 
 function UserBox(){
     const [login, setLogin] = useState(true);
