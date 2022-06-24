@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/* MINDsLab. NBR. 20210422 */
+
+/* 공통 CSS */
+@import url("reset.css"); 
+@import url("font.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css");
+
+/* -------------------- common -------------------- */
+/* scroll bar */
+::-webkit-scrollbar {width: 6px; height: 6px; border-radius: 3px;}  /* 스크롤바의 width */
+::-webkit-scrollbar-track {background: transparent;}  /* 스크롤바의 전체 배경색 */
+::-webkit-scrollbar-thumb {border-radius: 3px; background: rgb(174, 176, 179);}  /* 스크롤바 색 */
+::-webkit-scrollbar-button {display: none;}  /* 위 아래 버튼 (버튼 없애기를 함) */
+
+/* pc & mobile */
+.mobile {display:none !important;}
+
+/* float */
+.fl {float:left;}
+.fr {float:right;}
+
+/* hide */
+.hide {display:block; overflow:hidden; position:absolute; top:0; left:0; width:0; height:0; text-indent:-9999px; line-height:0; white-space:nowrap;}
+
+/* layer popup */
+.lyrWrap {display:none; position:fixed; top:0; right:0; bottom:0; left:0; width:100%; height:100%; z-index:100;}
+.lyr_bg {position:absolute; top:0; right:0; bottom:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.82);}
+.lyrCont {position:absolute; top:50%; left:50%; max-width:1000px; min-height:300px; max-height:500px; border-radius:10px; background:#fff; transform:translate(-50%, -50%);}
+.lyrCont .lyr_top {position:relative; padding:20px;}
+.lyrCont .lyr_top .tit {color:#1054b2; font-size:20px; font-weight:500; text-align:center;}
+.lyrCont .lyr_top .btn_lyr_close {position:absolute; top:10px; right:10px; width:40px; height:40px;}
+.lyrCont .lyr_top .btn_lyr_close:before {content:'\f00d'; font-family:'Font Awesome 5 Free'; color:#2c2c44; font-size:14px; font-weight:700; display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);}
+.lyrCont .lyr_top .btn_lyr_close span {display:block; overflow:hidden; text-indent:-9999px; white-space:nowrap;}
+.lyrCont .lyr_mid {padding:0 0 20px;}
+
+
+/* -------------------- layout -------------------- */
+#wrap {width:100%; min-width:1280px; height:100vh; background:#222;}
+#header {position:absolute; top:0; left:0; width:100%; height:80px; background-color:transparent;}
+#container .contBox {width:1240px; height:100%; margin:0 auto;}
+
+
+/* -------------------- main page -------------------- */
+/* header */
+#header .contBox {width:100%; height:100%; padding:0 50px; box-sizing:border-box;}
+#header .contBox .logo {float:left; width:114px; height:46px; margin-top:17px; background:url("../images/common/logo_maumAi_w.svg") 50% 50% no-repeat; background-size:contain;}
+#header .contBox .logo a {display:block; width:100%; height:100%;}
+#header .contBox .sta {height:80px; }
+
+#header .contBox .sta .gnb {float:left; margin:0 0 0 50px;}
+#header .contBox .sta .gnb .nav {clear:both; overflow:hidden; line-height:79px;}
+#header .contBox .sta .gnb .nav li {display:inline-block; padding:0 25px; vertical-align:middle;}
+#header .contBox .sta .gnb .nav li:last-child {margin:0;}
+#header .contBox .sta .gnb .nav li a {display:block; position:relative; padding:0 1px; border-bottom:2px solid transparent; color:#fff; font-size:16px; font-weight:500; line-height:36px;}
+#header .contBox .sta .gnb .nav li a:after {content:''; position:absolute; bottom:0; left:50%; width:0%; height:3px; background:#0078f2; opacity:0; transition:all 0.3s ease-out;}
+#header .contBox .sta .gnb .nav li a.active:after {left:0; width:100%; opacity:1.0; transition:all 0.3s ease-out;}
+
+#header .contBox .sta .etc {margin-left:auto;}
+#header .contBox .sta .etc {float:right; margin-top:24px;}
+#header .contBox .sta .etc .nav {clear:both;}
+#header .contBox .sta .etc .nav > li {position:relative; float:left;}
+#header .contBox .sta .etc .nav > li > a {display:block; padding:0 25px; color:#fff; font-size:14px; font-weight:500; line-height:30px; border-radius:4px;}
+#header .contBox .sta .etc .nav > li > a.btn_ico {overflow:hidden; padding:0 36px; box-sizing:border-box; background-position:50% 50%; background-repeat:no-repeat; background-size:20px 20px;}
+#header .contBox .sta .etc .nav > li > a.btn_ico span {overflow:hidden; display:inline-block; vertical-align:middle; text-indent:-999px;}
+#header .contBox .sta .etc .nav > li > a.btn_ico.user {background-image:url("../images/common/ico_user_w.svg");}
+#header .contBox .sta .etc .nav > li > a.btn_ico.lang {background-image:url("../images/common/ico_globe_w.svg");}
+#header .contBox .sta .etc .nav > li > a.btn_ico.app {background-image:url("../images/common/ico_app_w.svg");}
+
+/* header - transform */
+#header.transform {border-bottom:1px solid #f5f5f5; background-color:#fff;}
+#header.transform .contBox .logo {background:url("../images/common/logo_maumAi_clr.svg") 50% 50% no-repeat;}
+
+#header.transform .contBox .sta .gnb .nav li a {color:#1e1e1e;}
+#header.transform .contBox .sta .gnb .nav li.active > a {border-bottom:2px solid #1faac1;}
+
+#header.transform .contBox .sta .etc .nav > li > a {color:#1e1e1e;}
+#header.transform .contBox .sta .etc .nav > li > a.btn_ico.user {background-image:url("../images/common/ico_user_bk.svg");}
+#header.transform .contBox .sta .etc .nav > li > a.btn_ico.lang {background-image:url("../images/common/ico_globe_bk.svg");}
+#header.transform .contBox .sta .etc .nav > li > a.btn_ico.app {background-image:url("../images/common/ico_app_bk.svg");}
+
+/* langBox */
+#header .contBox .sta .etc .nav > li .lstBox {display:none; position:absolute; top:35px; left:50%; border:1px solid #e6e9f3; border-radius:4px; background:#fff; box-shadow:0 1px 4px 0 rgb(44 63 81 / 10%); transform:translate(-50%,0); z-index:10;}
+#header .contBox .sta .etc .nav > li .lstBox .lst {display:block; position:relative; min-width:150px; padding:7px 0;}
+#header .contBox .sta .etc .nav > li .lstBox .lst:before {content:''; position:absolute; top:0; left:50%; width:6px; height:6px; border-top:1px solid #e6e9f3; border-left:1px solid #e6e9f3; background:#fff; transform-origin:6px -3px; transform:rotate(45deg);}
+#header .contBox .sta .etc .nav > li .lstBox .lst li {clear:both; display:block; overflow:hidden;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li a {display:block; padding:7px 14px; color:#2c3f51; font-size:13px; text-align:left; transition:all 0.3s ease-out;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li a:hover {background:#f3f5fa; transition:all 0.3s ease-out;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.lang_li a {text-align:left;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.userInfo {width:200px; margin:0 0 7px 0; padding:3px 14px 7px 14px; border-bottom:1px solid #e6e9f3; box-sizing:border-box; text-align:left; vertical-align:top;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.userInfo .thumb {float:left; width:30px; height:30px; padding:4px 0 0 0;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.userInfo .info {float:left; padding:0 0 0 14px;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.userInfo .info .userName {display:block; color:#2c3f51; font-size:15px; font-weight:700;}
+#header .contBox .sta .etc .nav > li .lstBox .lst li.userInfo .info .loginID {display:block; overflow:hidden; max-width:125px; padding:3px 0; color:#5c688c; font-size:11px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal;}
+
+/* appBox */
+#header .contBox .sta .etc .nav > li .appBox {display:none; position:absolute; top:35px; right:-10px; border:1px solid #e6e9f3; border-radius:4px; box-shadow:0 1px 4px 0 rgb(44 63 81 / 10%); background:#fff; z-index:10;}
+#header .contBox .sta .etc .nav > li .appBox:before {content:''; position:absolute; top:0; right:36px; width:6px; height:6px; border-top:1px solid #e6e9f3; border-left:1px solid #e6e9f3; background:#fff; transform-origin:6px -3px; transform:rotate(45deg);}
+#header .contBox .sta .etc .nav > li .appBox .tit {display:block; padding:8px 15px; border-bottom:1px solid #e6e9f3; color:#2c3f51; font-size:11px; font-weight:700; text-align:center;}
+#header .contBox .sta .etc .nav > li .appBox .lst {clear:both; display:block; overflow:hidden; position:relative; width:300px; padding:7px 0; background:#f7f8fc;}
+#header .contBox .sta .etc .nav > li .appBox .lst li {float:left; width:33.33333%; margin:0 0 10px 0; text-align:center;}
+#header .contBox .sta .etc .nav > li .appBox .lst li a {display:block; margin:0 5px; box-sizing:border-box;}
+#header .contBox .sta .etc .nav > li .appBox .lst li a span {display:inline-block; width:42px; height:42px; margin:4px 0 0 0; border-radius:7px; border:solid 1px #b6c5d1; background-color:#fff; background-position:50% 50%; background-repeat:no-repeat; transition:all 0.3s ease-out;}
+#header .contBox .sta .etc .nav > li .appBox .lst li a em {display:block; line-height:14px; font-size:12px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li a:hover span {border:1px solid #407ae5; transition:all 0.3s ease-out;}
+#header .contBox .sta .etc .nav > li .appBox .lst li a:hover em {color:#407ae5; transition:all 0.3s ease-out;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(1) a span {background-image:url("../images/common/appBox/img_AIHaaS.png"); background-size:41px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(2) a span {background-image:url("../images/common/appBox/img_mStudio.svg"); background-size:contain;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(3) a span {background-image:url("../images/common/appBox/img_aiBuilder.png"); background-size:34px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(4) a span {background-image:url("../images/common/appBox/img_aiStore.png"); background-size:41px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(5) a span {background-image:url("../images/common/appBox/img_fastAi.png"); background-size:28px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(6) a span {background-image:url("../images/common/appBox/img_maumMinutes.png"); background-size:22px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(7) a span {background-image:url("../images/common/appBox/img_cloudApi.png"); background-size:29px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(8) a span {background-image:url("../images/common/appBox/img_maumData.svg"); background-size:41px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(9) a span {background-image:url("../images/common/appBox/img_edgeAiPlatform.svg"); background-size:34px;}
+#header .contBox .sta .etc .nav > li .appBox .lst li:nth-child(10) a span {background-image:url("../images/common/appBox/img_tts.svg"); background-size:34px;}
+
+
+/* -------------------- media query -------------------- */
+@media screen and (max-width:768px) {
+    /* common */
+    html, body {font-size:14px;}
+    #wrap {min-width:320px;}
+
+    /* pc & mobile */
+    .pc {display:none !important;}
+    .mobile {display:block !important;}
+
+    /* layer popup */
+    .lyrCont {width:calc(100% - 40px);}
+
+    /* header */
+    
+}
