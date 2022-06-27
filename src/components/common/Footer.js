@@ -2,7 +2,7 @@ import { icoPhone20, icoEmail20, icoFacebook40, icoYoutube40, icoBlog40 } from "
 
 function Footer(){
     return (
-        <div id="footerLanding" className="section" data-anchor="stn_footer">
+        <div id="footer" className="section" data-anchor="stn_footer">
             <div className="ft_top">
                 <div className="footer_inner">
                     <div className="col links fl">

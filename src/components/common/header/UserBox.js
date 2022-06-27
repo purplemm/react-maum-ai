@@ -2,15 +2,15 @@ import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { icoUserGrey } from "../../../assets/images/CommImg";
 
-function UserBox(){
-    const [login, setLogin] = useState(true);
+function UserBox({ isActive }){
+    const [login, setLogin] = useState(false);
 
     return (
         <Fragment>
             {
                 login
                 ? (
-                    <li>
+                    <li className={ isActive ? "active" : "" }>
                         <a className="btn_ico user" href="#none"><span>사용자</span></a>
 
                         <div className="lstBox">
@@ -32,9 +32,7 @@ function UserBox(){
                     </li>
                 )
                 : (
-                    <li>
-                        <a href="#none" className="btn_sign">로그인</a>
-                    </li>
+                    <li><Link to="/login" className="btn_sign">로그인</Link></li>
                 )
             }
         </Fragment>

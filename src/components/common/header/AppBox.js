@@ -1,6 +1,6 @@
-function AppBox(){
+function AppBox({ isActive }){
     return (
-        <li>
+        <li className={ isActive ? "active" : "" }>
             <a className="btn_ico app" href="#none"><span>웹 앱 및 서비스</span></a>
             <div className="appBox">
                 <div className="tit">웹 앱 및 서비스</div>

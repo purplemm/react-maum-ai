@@ -1,11 +1,20 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import GnbNav from "./header/GnbNav";
 import UserBox from "./header/UserBox";
 import LangBox from "./header/LangBox";
 import AppBox from "./header/AppBox";
 import MobileHamBtn from "./header/MobileHamBtn";
+import { useSelector } from "react-redux";
 
 function Header(){
+    let state = useSelector((state) => state);
+    let [isActive, setIsActive] = useState(false);
+
+    function etcToggleClass(){
+        setIsActive(!isActive);
+        console.log(isActive);
+    }
+    
     useEffect(() => {
         // 가로 스크롤 시 header fix
         document.addEventListener("scroll", function() {
@@ -16,7 +25,7 @@ function Header(){
     }, []);
 
     return (
-        <div id="header">
+        <div id="header" className={ state.headerClass }>
             <div className="contBox">
                 <h1 className="logo">
                     <a href="/" title="maum.ai">
@@ -28,8 +37,8 @@ function Header(){
                     <div className="etc">
                         <ul className="nav">
                             <UserBox />
-                            <LangBox />
-                            <AppBox />
+                            <LangBox onClick={ etcToggleClass } isActive={ isActive } />
+                            <AppBox onClick={ etcToggleClass } isActive={ isActive } />
                         </ul>
                     </div>
                     <MobileHamBtn />

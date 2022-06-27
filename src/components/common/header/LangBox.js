@@ -1,6 +1,7 @@
-function LangBox(){
+function LangBox({ isActive }){
+    console.log(isActive);
     return (
-        <li>
+        <li className={ isActive ? "active" : "" }>
             <a className="btn_ico lang" href="#none"><span>언어</span></a>
             <div className="lstBox">
                 <ul className="lst">
