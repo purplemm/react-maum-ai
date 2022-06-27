@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import GnbNav from "./header/GnbNav";
 import UserBox from "./header/UserBox";
 import LangBox from "./header/LangBox";
@@ -8,12 +8,6 @@ import { useSelector } from "react-redux";
 
 function Header(){
     let state = useSelector((state) => state);
-    let [isActive, setIsActive] = useState(false);
-
-    function etcToggleClass(){
-        setIsActive(!isActive);
-        console.log(isActive);
-    }
     
     useEffect(() => {
         // 가로 스크롤 시 header fix
@@ -37,8 +31,8 @@ function Header(){
                     <div className="etc">
                         <ul className="nav">
                             <UserBox />
-                            <LangBox onClick={ etcToggleClass } isActive={ isActive } />
-                            <AppBox onClick={ etcToggleClass } isActive={ isActive } />
+                            <LangBox />
+                            <AppBox />
                         </ul>
                     </div>
                     <MobileHamBtn />

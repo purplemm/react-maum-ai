@@ -1,7 +1,21 @@
-function LangBox({ isActive }){
-    console.log(isActive);
+import { useState, useEffect } from "react";
+
+function LangBox(){
+    const [isActive, setIsActive] = useState(false);
+
+    function etcToggleClass(){
+        setIsActive(!isActive);
+    }
+
+    useEffect(() => {
+        const etcNav = document.querySelectorAll(".etc .nav li");
+        return () => {
+            etcNav.classList.remove("active");
+        }
+    }, []);
+
     return (
-        <li className={ isActive ? "active" : "" }>
+        <li onClick={ etcToggleClass } className={ isActive ? "active" : "" }>
             <a className="btn_ico lang" href="#none"><span>언어</span></a>
             <div className="lstBox">
                 <ul className="lst">

@@ -1,6 +1,21 @@
-function AppBox({ isActive }){
+import { useState, useEffect } from "react";
+
+function AppBox(){
+    const [isActive, setIsActive] = useState(false);
+
+    function etcToggleClass(){
+        setIsActive(!isActive);
+    }
+
+    useEffect(() => {
+        const etcNav = document.querySelectorAll(".etc .nav li");
+        return () => {
+            etcNav.classList.remove("active");
+        }
+    }, []);
+
     return (
-        <li className={ isActive ? "active" : "" }>
+        <li onClick={ etcToggleClass } className={ isActive ? "active" : "" }>
             <a className="btn_ico app" href="#none"><span>웹 앱 및 서비스</span></a>
             <div className="appBox">
                 <div className="tit">웹 앱 및 서비스</div>

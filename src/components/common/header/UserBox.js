@@ -1,16 +1,28 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { icoUserGrey } from "../../../assets/images/CommImg";
 
-function UserBox({ isActive }){
+function UserBox(){
     const [login, setLogin] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+
+    function etcToggleClass(){
+        setIsActive(!isActive);
+    }
+
+    useEffect(() => {
+        const etcNav = document.querySelectorAll(".etc .nav li");
+        return () => {
+            etcNav.classList.remove("active");
+        }
+    }, []);
 
     return (
         <Fragment>
             {
                 login
                 ? (
-                    <li className={ isActive ? "active" : "" }>
+                    <li onClick={ etcToggleClass } className={ isActive ? "active" : "" }>
                         <a className="btn_ico user" href="#none"><span>사용자</span></a>
 
                         <div className="lstBox">
