@@ -1,4 +1,5 @@
 import { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { changeClass } from "../store/store";
 import { imgTrialTooltip } from "../assets/images/CommImg";
@@ -35,7 +36,7 @@ function Login(){
                                     <a href="#none" title="로그인" className="homebtn">로그인</a>
                                 </span>
                                 <div className="btn">
-                                    <a href="#none" className="btn_signupt">회원가입 </a><span>&nbsp;|&nbsp;</span>
+                                    <Link to="/join/agreeTerms" className="btn_signupt">회원가입</Link><span>&nbsp;| &nbsp;</span>
                                     <a href="#none" className="btn_forgot">비밀번호 찾기</a>
                                     <div className="tooltip">
                                         <div className="tooltip_box">

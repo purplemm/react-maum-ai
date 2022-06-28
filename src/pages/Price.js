@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeClass } from "../store/store";
 import { imgFreeTrial, icoWonGrn, icoWonB, icoQuestion, icoChkGrn, icoNullG } from "../assets/images/PriceImg";
-
+import $ from "jquery";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
 import "swiper/swiper.min.css";
@@ -14,6 +14,21 @@ function Price(){
 
     useEffect(() => {
         dispatch(changeClass("price"));
+
+        $(function(){
+            // 상품 상세 비교 hover 효과
+            $('.cont_dropdown > div > div').on('mouseenter', function(){
+                let thisContIndex = $(this).parents('.cont').index();
+                let thisIndex = $(this).parent('.drop_tit').index();
+
+                $('.rate_list').find('.cont').eq(thisContIndex - 1).find('.drop_tit').eq(thisIndex).find('div').addClass('hover');
+                $('.rate_list').find('.cont').eq(thisContIndex + 1).find('.drop_tit').eq(thisIndex).find('div').addClass('hover');
+            });
+
+            $('.cont_dropdown > div > div').on('mouseleave', function(){
+                $('.cont_dropdown > div > div').removeClass('hover');
+            });
+        });
     }, []);
 
     return (

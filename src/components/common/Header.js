@@ -11,11 +11,11 @@ function Header(){
     
     useEffect(() => {
         // 가로 스크롤 시 header fix
-        document.addEventListener("scroll", function() {
-            let maumHeader = document.getElementById("header");
-            let scrollX =  window.scrollX;    
-            maumHeader.style.left = scrollX + "px";
-        });
+        // document.addEventListener("scroll", function() {
+        //     let maumHeader = document.getElementById("header");
+        //     let scrollX =  window.scrollX;    
+        //     maumHeader.style.left = "-" + scrollX + "px";
+        // });
     }, []);
 
     return (

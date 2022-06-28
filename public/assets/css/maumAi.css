@@ -2,8 +2,6 @@
 /* MINDsLab. NBR. 20220624 */
 
 /* ---------------------------------------- main page content ---------------------------------------- */
-#container.main {padding-top:0;}
-
 /* stn_menu */
 #stn_menu {position:absolute; top:50%; left:5vw; font-family:'Roboto', sans-serif; transform:translateY(-50%); z-index:50;}
 #stn_menu li:not(:first-child) {margin-top:11px;}
@@ -38,14 +36,15 @@
 /* stn - aiHaaS */
 #aiHaaS {padding:0;background:url("../images/main/bg_stn_aiHaaS.png") 50% 50% no-repeat; background-size:cover;}
 #aiHaaS .fp-tableCell {vertical-align:bottom;}
-#aiHaaS .frame-box {overflow:hidden; aspect-ratio: 3 / 4; position:absolute;width:auto;height:100%;top:0;left:50%;transform:translatex(-50%);} /* 660 : 880 = 3 : 4 */
-#aiHaaS iframe {overflow:hidden;position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;border:0;outline:0;}
+.fp-viewing-stn_aiHaaS #stn_menu li span, .fp-viewing-stn_aiHaaS {color:#002B49;}
+#aiHaaS .frame-box {aspect-ratio:3 / 4; overflow:hidden; position:absolute; top:0; left:50%; width:auto; height:100%; transform:translatex(-50%);} /* 660 : 880 = 3 : 4 */
+#aiHaaS iframe {overflow:hidden; position:absolute; top:0; right:0; bottom:0; left:0; width:100%; height:100%; border:0; outline:0;}
 @media screen and (max-width:768px) {
-    #aiHaaS .frame-box {width:100%;height:100vh;}
+    #aiHaaS .frame-box {width:100%; height:100vh;}
 }
 @media screen and (max-height:880px) {
     #aiHaaS .fp-tableCell {vertical-align:top;}
-    #aiHaaS .frame-box {height:inherit;max-height:inherit;min-height:600px;}
+    #aiHaaS .frame-box {max-height:inherit; min-height:600px; height:inherit;}
 }
 
 /* stn - aiHuman */
@@ -234,12 +233,14 @@
     .btn_primary.small {font-size:0.75rem; border-radius:22px;}
     .btn_primary.large {font-size:1.25rem; border-radius:30px;}
 
-    /* layer */
-    #aiHumanJob .popWrap {margin:50px auto;}
-    #aiHumanJob .popWrap .pop_ft .checkBox {font-size:16px;}
-
     /* -------------------- main page content -------------------- */
-    .maumUI #header .maum_sta {border-bottom:none;}
+    #header {position:fixed; min-width:auto; height:58px; border-bottom:1px solid #f5f5f5; background-color:#fff;}
+    #header .contBox {padding:0 20px;}
+    #header .contBox .logo {width:62px; height:24px; margin-top:17px; background-image:url("../images/common/logo_maumAi_clr.svg");} 
+    #header .contBox .sta {height:58px;}
+    #header .contBox .sta .gnb {display:none;}
+    #header .contBox .sta .etc {display:none;}
+    .content {padding:0 16px;}
 
     /* stn_menu */
     #stn_menu {display:none;}
@@ -357,7 +358,7 @@
 
 
 /* ---------------------------------------- layout ---------------------------------------- */
-#container.price {width:100%;}
+#container.price {width:100%; background:#fff;}
 #container.price .contBox {width:100%;}
 .price .contents {width:100%;}
 .price_cont {width:100%; height:100%;}
@@ -647,8 +648,6 @@
 
 /* ---------------------------------------- login page content ---------------------------------------- */
 /* common */
-#container.login {display:table; width:100%; height:100%;}
-.login .content {display:table-row; height:100%; padding:0 0 50px 0; text-align:center; box-sizing:border-box;}
 .login .content .errorImg {margin:30px 0 24px;}
 .login .content p {margin:34px auto 30px; color:#002b49; font-size:20px; font-weight:300; font-stretch:normal; font-style:normal; line-height:normal; text-align:center; letter-spacing:-0.4px;}
 
@@ -669,12 +668,12 @@
 .login .btn {position:relative; width:400px; margin:0 auto;}
 .login .btn a{color:#34424e; font-size:12px; text-align:center; letter-spacing:-0.22px; opacity:0.8;}
 .login .btn span {color:rgba(52,66,78,0.3); font-size:12px;}
-.login .checks {display:inline-block; padding:0 0 0 2px; text-align:left;}
-.login .checks input[type="checkbox"] {overflow:hidden; position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; clip:rect(0,0,0,0); transition:all 0.3s ease-out;}
-.login .checks input[type="checkbox"] + label {display:inline-block; position:relative; color:#363a44; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; opacity:0.8; transition:all 0.3s ease-out;}
-.login .checks input[type="checkbox"] + label em {font-size:13px; transition:all 0.2s ease-out;}
-.login .checks input[type="checkbox"]:checked + label {opacity:1;}
-.login .checks input[type="checkbox"]:checked + label em {color:#14b6cb; transition:all 0.2s ease-out;}
+.join .checks {display:inline-block; padding:0 0 0 2px; text-align:left;}
+.join .checks input[type="checkbox"] {overflow:hidden; position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; clip:rect(0,0,0,0); transition:all 0.3s ease-out;}
+.join .checks input[type="checkbox"] + label {display:inline-block; position:relative; color:#363a44; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; opacity:0.8; transition:all 0.3s ease-out;}
+.join .checks input[type="checkbox"] + label em {font-size:13px; transition:all 0.2s ease-out;}
+.join .checks input[type="checkbox"]:checked + label {opacity:1;}
+.join .checks input[type="checkbox"]:checked + label em {color:#14b6cb; transition:all 0.2s ease-out;}
 
 /*툴팁*/
 .login .tooltip {}
@@ -689,3 +688,52 @@
     100% {margin-top:0;}
 }
 
+/*sign Up*/
+.agreeWrap {padding:50px 0 0 0;}
+.agreeBox{width:400px; margin:0 auto; text-align:left;}
+.agreeBox .checks input[type="checkbox"] + label {color:#34424e; font-size:14px; letter-spacing:-0.2px;}
+.agreeBox .checks input[type="checkbox"] + label em {float:left; margin:0 7px 0 0; font-size:20px; vertical-align:middle;}
+.agreeBox span strong {color:#14b6cb; font-weight:400;}
+.agreeBox .scroll_box {overflow:auto; width:100%; height:122px; margin:8px 0 30px 0; padding:10px; color:#2c3f51; font-size:12px; text-align:left; line-height:18px; white-space:pre-wrap; border-radius:3px; border:1px solid #cfd5eb; background-color:#fff; box-sizing:border-box;}
+.agreeBox a {display:inline-block; width:195px; height:48px; margin:30px 0 0 0; color:#fff; font-size:15px; font-weight:500; text-align:center; line-height:48px; letter-spacing:-0.21px; border-radius:2px; background-color:#9faeba;}
+.agreeBox a + a {background-color:#14b6cb; margin:30px 0 0 5px;}
+.agreeBox a.link { width: auto; height:auto; margin:0 0 0 5px;; color:#3599ff; font-size:12px; text-align:left; line-height:16px; letter-spacing:0; background:#fff;}
+.agreeBox a.link:hover {color:#3599ff; text-decoration:underline;}
+
+.signUpWrap {padding:50px 0;}
+.signUpBox {width:400px; margin:0 auto; text-align:left;}
+.signUpBox .input_box .input_txt {margin:0 0 20px 0;}
+.signUpBox .input_box .input_txt label {font-size:13px; font-weight:500; letter-spacing:-0.19px; color:#34424e;}
+.signUpBox .input_box .input_txt input {width:100%; height:48px; margin:5px 0 0 0; padding:10px; border-radius:3px; box-sizing:border-box; border:1px solid #cfd5eb; background-color:#fff;}
+.signUpBox .input_box .input_txt input.error {border:1px solid #14b6cb;}
+.signUpBox .input_box .input_txt span {display:none; padding:5px 0 0 0; color:#34424e; font-size:12px; letter-spacing:-0.22px; opacity:0.8;}
+.signUpBox .input_box .input_txt span.noti{display:block;}
+.signUpBox .input_box .input_txt span.email{display:none; color:#14b6cb; font-size:12px; letter-spacing:-0.22px; opacity:0.8;}
+.signUpBox .input_box .input_txt span.error {color:#fe2d35;}
+.signUpBox .input_box .input_txt div {position:relative;}
+.signUpBox .input_box .input_txt div button {position:absolute; top:29px; right:0; width:113px; height:48px; color:#fff; font-size:15px; text-align:center; line-height:48px; letter-spacing:-0.21px; border-radius:0 3px 3px 0; background-color:#14b6cb; box-sizing:border-box;}
+.signUpBox .input_box .input_txt div.code_box {display:none; margin:9px 0 0 0;}
+.signUpBox .input_box .input_txt div.code_box::placeholder {color:#2c3f51; opacity:0.6;}
+.signUpBox .input_box .input_txt div.code_box .count {position:absolute; top:20px; right:122px; color:#ff1d49; font-size:14px; font-weight:500; opacity:0.6;}
+.signUpBox .input_box .input_txt div.code_box button {top:6px;}
+.signUpBox .select_form > span {display:block; margin:0 0 16px 0; color:#34424e; font-size:13px; font-weight:500; letter-spacing:-0.19px;}
+.signUpBox .checks {}
+.signUpBox .checks input[type="checkbox"] + label {font-size:14px;}
+.signUpBox .checks input[type="checkbox"] + label em {float:left; margin:0 7px 0 0; font-size:20px; vertical-align:middle;}
+.signUpBox .checks:first-child {min-width:120px;}
+.signUpBox .checks:nth-child(2) {min-width:150px;}
+.signUpBox a {display:block; height:48px; margin:40px 0 0; color:#fff; font-size:15px; font-weight:500; text-align:center; line-height:48px; letter-spacing:-0.21px; border-radius:2px; background-color:#14b6cb;}
+
+@media screen and (max-width:768px) {
+    .login .btn {width:100%;}
+    .login .btn_box {width:90%;}
+    .login .loginWrap {padding:50px 15px 0;}
+    .login .loginWrap .loginBox {width:100%;}
+    .login .tooltip .tooltip_box {top:24px;}
+    .login .tooltip .tooltip_box:before {display:none;}
+    .login .tooltip .tooltip_box:after {display:none;}
+    .join .agreeBox{width:100%; padding:0 15px 30px; box-sizing:border-box;}
+    .join .checks {padding:0 0 5px 2px;}
+    .join .agreeBox a {width:calc(50% - 5px);}
+    .join .agreeBox a + a {width:calc(50% - 5px);}
+}
