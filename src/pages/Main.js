@@ -5,7 +5,7 @@ import 'fullpage.js/vendors/scrolloverflow';
 import 'fullpage.js';
 import 'fullpage.js/dist/jquery.fullpage.min.css';
 import { useSelector, useDispatch } from "react-redux";
-import { changeClass } from "../store/store";
+import { changeTitle, changeClass } from "../store/store";
 import Footer from "../components/common/Footer";
 
 function Main(){
@@ -117,6 +117,10 @@ function Main(){
                 }
             });
         });
+
+        return () => {
+            dispatch(changeTitle(""));
+        }
     }, []);
 
     return (

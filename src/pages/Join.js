@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { changeClass } from "../store/store";
+import { changeTitle, changeClass } from "../store/store";
 
 function Join(){
     let state = useSelector((state) => state);
@@ -9,6 +9,11 @@ function Join(){
 
     useEffect(() => {
         dispatch(changeClass("join"));
+        dispatch(changeTitle("회원가입"));
+
+        return () => {
+            dispatch(changeTitle(""));
+        }
     }, []);
 
     return (

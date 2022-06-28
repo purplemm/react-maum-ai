@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { changeClass } from "../store/store";
+import { changeTitle, changeClass } from "../store/store";
 import { imgTrialTooltip } from "../assets/images/CommImg";
 
 function Login(){
@@ -10,6 +10,11 @@ function Login(){
 
     useEffect(() => {
         dispatch(changeClass("login"));
+        dispatch(changeTitle("로그인"));
+
+        return () => {
+            dispatch(changeTitle(""));
+        }
     }, []);
 
     return (

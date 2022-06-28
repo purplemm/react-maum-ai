@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeClass } from "../store/store";
+import { changeTitle, changeClass } from "../store/store";
 import { imgFreeTrial, icoWonGrn, icoWonB, icoQuestion, icoChkGrn, icoNullG } from "../assets/images/PriceImg";
 import $ from "jquery";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,7 +14,8 @@ function Price(){
 
     useEffect(() => {
         dispatch(changeClass("price"));
-
+        dispatch(changeTitle("요금안내"));
+        
         $(function(){
             // 상품 상세 비교 hover 효과
             $('.cont_dropdown > div > div').on('mouseenter', function(){
@@ -29,6 +30,10 @@ function Price(){
                 $('.cont_dropdown > div > div').removeClass('hover');
             });
         });
+
+        return () => {
+            dispatch(changeTitle(""));
+        }
     }, []);
 
     return (
