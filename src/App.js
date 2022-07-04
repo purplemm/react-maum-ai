@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AsideNav from "./components/common/AsideNav";
 import LayerBg from "./components/common/LayerBg";
@@ -6,19 +6,24 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import Main from "./pages/Main";
 import SectionMenu from "./components/content/main/SectionMenu";
-import Price from "./pages/Price";
+// import Price from "./pages/Price";
 import Login from "./pages/Login";
-import Join from "./pages/Join";
+// import Join from "./pages/Join";
 import AgreeTerms from "./components/content/join/AgreeTerms";
 import SignUp from "./components/content/join/SignUp";
-import Employees from "./pages/Employees";
-import User from "./pages/User";
+// import Employees from "./pages/Employees";
+// import User from "./pages/User";
 import Profile from "./components/content/user/Profile";
 import ApiAccount from "./components/content/user/ApiAccount";
 import PaymentInfo from "./components/content/user/PaymentInfo";
 import { useSelector, useDispatch } from "react-redux";
 import { asideOpen, commAsideNav, addClass } from "./store/store";
 import $ from 'jquery';
+
+const Price = lazy(() => import("./pages/Price"));
+const Join = lazy(() => import("./pages/Join"));
+const Employees = lazy(() => import("./pages/Employees"));
+const User = lazy(() => import("./pages/User"));
 
 function App() {
   let state = useSelector((state) => state);
@@ -63,22 +68,24 @@ function App() {
         }
         <AsideNav />
         <Header />
+        <Suspense fallback={ <div>로딩중</div> }>
           <Routes>
-              <Route path="/" element={ <Main /> } />
-              <Route path="/price" element={ <Price /> } />
-              <Route path="/login" element={ <Login /> } />
-              <Route path="/join" element={ <Join /> }>
-                <Route path="agreeTerms" element={ <AgreeTerms /> } />
-                <Route path="signUp" element={ <SignUp /> } />
-              </Route>
-              <Route path="/employees" element={ <Employees /> } />
-              <Route path="/user" element={ <User /> }>
-                <Route path="profile" element={ <Profile /> } />
-                <Route path="apiAccount" element={ <ApiAccount /> } />
-                <Route path="paymentInfo" element={ <PaymentInfo /> } />
-              </Route>
-              <Route path="*" element={ <div>Not Found</div> } />
+            <Route path="/" element={ <Main /> } />
+            <Route path="/price" element={ <Price /> } />
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/join" element={ <Join /> }>
+              <Route path="agreeTerms" element={ <AgreeTerms /> } />
+              <Route path="signUp" element={ <SignUp /> } />
+            </Route>
+            <Route path="/employees" element={ <Employees /> } />
+            <Route path="/user" element={ <User /> }>
+              <Route path="profile" element={ <Profile /> } />
+              <Route path="apiAccount" element={ <ApiAccount /> } />
+              <Route path="paymentInfo" element={ <PaymentInfo /> } />
+            </Route>
+            <Route path="*" element={ <div>Not Found</div> } />
           </Routes>
+        </Suspense>
         {
           state.containerClass === "main" || state.containerClass === "login" || state.containerClass === "join"
           ? null

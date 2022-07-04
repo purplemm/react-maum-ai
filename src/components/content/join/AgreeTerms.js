@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import terms from "../../../data/terms";
 import conditions from "../../../data/conditions";
 
 function AgreeTerms(){
+    const navigate = useNavigate();
+
     return (
         <div className="content">
             <div className="agreeWrap">
@@ -21,7 +23,7 @@ function AgreeTerms(){
                             <input type="checkbox" name="ipt_check" id="check3" className="ipt_check" />
                             <label htmlFor="check3"><em className="far fa-check-circle"></em> 이벤트 등 프로모션 알림 메일 수신 (선택)</label>
                      </span>
-                    <Link to="/login">뒤로</Link>
+                    <a href="#none" title="뒤로" target="_self" onClick={ navigate(-1) }>뒤로</a>
                     <Link to="/join/signUp" className="agree_btn">확인</Link>
                 </div>
             </div>

@@ -8,6 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeTitle, changeClass } from "../store/store";
 import Footer from "../components/common/Footer";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination, Navigation } from "swiper";
+import "swiper/swiper.min.css";
+SwiperCore.use([Pagination, Navigation]);
+// SwiperCore.use([Navigation]);
+
 function Main(){
     let state = useSelector((state) => state);
     let dispatch = useDispatch();
@@ -67,6 +73,8 @@ function Main(){
                 };
             }
             sectionFigureAni();
+
+            // fullpage
             $("#container").fullpage({
                 menu : '#stn_menu',
                 anchors : ['stn_aiHaaS', 'stn_aiHuman', 'stn_aicc', 'stn_smartX', 'stn_minutes', 'stn_cloudAPI', 'stn_maumDATA', 'stn_contact', 'stn_footer'],
@@ -172,61 +180,79 @@ function Main(){
                         <p className="svc_desc">운영 비용 부담을 덜고,<br className="pc" /> 고객상담 커버율을 높여주는 서비스</p>
                     </div>
 
-                    <div className="figure_wrap swiper-container">
-                        <ul className="figure_list swiper-wrapper">
-                            <li className="swiper-slide">
-                                <dl className="item">
-                                    <dt>음성봇 성공 콜수</dt>
-                                    <dd>
-                                        <span>연간</span>
-                                        <strong className="figure aicc_fgr01">768,000</strong>
-                                        <span>콜</span>
-                                    </dd>
-                                </dl>
-                                <dl className="item">
-                                    <dt>은행 챗봇 거래 처리수</dt>
-                                    <dd>
-                                        <span>연간</span>
-                                        <strong className="figure aicc_fgr02">3,600,000</strong>
-                                        <span>건</span>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li className="swiper-slide">
-                                <dl className="item">
-                                    <dt>마케팅 콜 검사(TMQA) 계약수</dt>
-                                    <dd>
-                                        <span>연간</span>
-                                        <strong className="figure aicc_fgr05">2,300,000</strong>
-                                        <span>건</span>
-                                    </dd>
-                                </dl>
-                            </li>
-                            <li className="swiper-slide">
-                                <dl className="item">
-                                    <dt>고객의 소리(VOC) 분석 콜수</dt>
-                                    <dd>
-                                        <div>
-                                            <img src={ imgKor } alt="Korean flag" />
-                                            <span>연간</span>
-                                            <strong className="figure aicc_fgr03">1억</strong>
-                                            <span>콜</span>
-                                        </div>
-                                        <div>
-                                            <img src={ imgEng } alt="American flag" />
-                                            <span>연간</span>
-                                            <strong className="figure aicc_fgr04">1천만</strong>
-                                            <span>콜</span>
-                                        </div>
-                                    </dd>
-                                </dl>
-                            </li>
-                        </ul>
-
+                    <Swiper className="figure_wrap swiper-container" tag="div" wrapperTag="ul"
+                        slidesPerGroup = {1}
+                        slidesPerView = {1}
+                        spaceBetween = {65}
+                        allowTouchMove = {true}
+                        pagination = {{
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        }}
+                        navigation = {{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        }}
+                        breakpoints = {{
+                            768: {
+                                slidesPerGroup: 1,
+                                slidesPerView: 3,
+                                spaceBetween: 0,
+                                allowTouchMove: false,
+                            }
+                        }}
+                    >
                         <div className="swiper-pagination"></div>
                         <div className="swiper-button-prev"></div>
                         <div className="swiper-button-next"></div>
-                    </div>
+                        <SwiperSlide className="swiper-slide" tag="li">
+                            <dl className="item">
+                                <dt>음성봇 성공 콜수</dt>
+                                <dd>
+                                    <span>연간</span>
+                                    <strong className="figure aicc_fgr01">768,000</strong>
+                                    <span>콜</span>
+                                </dd>
+                            </dl>
+                            <dl className="item">
+                                <dt>은행 챗봇 거래 처리수</dt>
+                                <dd>
+                                    <span>연간</span>
+                                    <strong className="figure aicc_fgr02">3,600,000</strong>
+                                    <span>건</span>
+                                </dd>
+                            </dl>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide" tag="li">
+                            <dl className="item">
+                                <dt>마케팅 콜 검사(TMQA) 계약수</dt>
+                                <dd>
+                                    <span>연간</span>
+                                    <strong className="figure aicc_fgr05">2,300,000</strong>
+                                    <span>건</span>
+                                </dd>
+                            </dl>
+                        </SwiperSlide>
+                        <SwiperSlide className="swiper-slide" tag="li">
+                            <dl className="item">
+                                <dt>고객의 소리(VOC) 분석 콜수</dt>
+                                <dd>
+                                    <div>
+                                        <img src={ imgKor } alt="Korean flag" />
+                                        <span>연간</span>
+                                        <strong className="figure aicc_fgr03">1억</strong>
+                                        <span>콜</span>
+                                    </div>
+                                    <div>
+                                        <img src={ imgEng } alt="American flag" />
+                                        <span>연간</span>
+                                        <strong className="figure aicc_fgr04">1천만</strong>
+                                        <span>콜</span>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </SwiperSlide>
+                    </Swiper>
 
                     <div className="btnBox">
                         <a href="https://fast-aicc.maum.ai/intro" target="_blank" title="새창으로 열기" className="btn_link" rel="noreferrer">바로가기</a>
